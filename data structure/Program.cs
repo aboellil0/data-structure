@@ -45,12 +45,71 @@ linkedlist.RemoveFirst();
 
 
 
-public class Solution
+DynamicArray<string> dynamicarray = new DynamicArray<string>();
+Console.WriteLine(dynamicarray.size);
+Console.WriteLine(dynamicarray.capacity);
+Console.WriteLine(dynamicarray.toString());
+
+public class DynamicArray<T>
 {
-    public bool IsPalindrome(int x)
+    public int size { get; private set; } = 0;
+    public int capacity { get; private set; } = 10;
+    T[] array;
+    public DynamicArray()
     {
-        string X = x.ToString();
-        string Y = new string(X.Reverse().ToArray());
-        return (X == Y);
+        this.array = new T[capacity];  
+    }
+    public DynamicArray(int capacity)
+    {
+        this.capacity = capacity;
+        this.array = new T[capacity];
+    }
+
+
+    public void add(T value)
+    {
+        if (size < capacity) {
+            grow();
+        }
+        array[size] = value;
+        size++;
+    }
+    public void remove(T value)
+    {
+    }
+    public void clear()
+    {
+    }
+
+    public void insert(int index,T value)
+    {
+
+    }
+    public int indexOf(T value)
+    {
+        return 1;
+    }
+
+    public void grow()
+    {
+
+    }
+    public void shrink(int count)
+    {
+
+    }
+    public bool isEmpty()
+    {
+        return size==0;
+    }
+    public string toString()
+    {
+        if (size == 0) return "[]";
+        string ss = "";
+        for (int i = 0; i <size; i++)
+        {
+            ss += array[i] + ", ";
+        }
+        return "[" + ss.Substring(0,ss.Length-2) + "]"; 
     }
 }
