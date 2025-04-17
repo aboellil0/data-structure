@@ -1,5 +1,7 @@
 ﻿
 
+using System.Linq;
+
 Stack<string> stack = new Stack<string>();
 Queue<string> queue = new Queue<string>();
 
@@ -45,10 +47,22 @@ linkedlist.RemoveFirst();
 
 
 
-DynamicArray<string> dynamicarray = new DynamicArray<string>();
-Console.WriteLine(dynamicarray.size);
-Console.WriteLine(dynamicarray.capacity);
-Console.WriteLine(dynamicarray.toString());
+DynamicArray<string> da = new DynamicArray<string>();
+
+da.add("A");
+da.add("B");
+da.add("C");
+da.add("D");
+da.add("E");
+da.add("F");
+
+da.remove("C");
+
+Console.WriteLine(da.size);
+Console.WriteLine(da.capacity);
+Console.WriteLine(da.toString());
+
+
 
 public class DynamicArray<T>
 {
@@ -76,27 +90,74 @@ public class DynamicArray<T>
     }
     public void remove(T value)
     {
+        for (int i = 0; i < size; i++)
+        {
+            if (array[i].Equals(value))
+            {
+                for (int j = i;j < size-1; j++)
+                {
+                    array[j] = array[j + 1];
+                }
+                array[size-1] = default;
+                size--;
+                if (size < (int)(capacity/3))
+                {
+                    shrink();
+                }
+                break;
+            }
+        }
     }
     public void clear()
     {
+        for (int i = 0; i < size; i++)
+        {
+            array[i] = default;   
+        }
+        size = 0;
     }
-
     public void insert(int index,T value)
     {
-
+        if (size + 1 < capacity)
+        {
+            grow();
+        }
+        for (int i = size; i > index; i--)
+        {
+            array[i] = array[i - 1];
+        }
+        size++;
     }
     public int indexOf(T value)
     {
-        return 1;
+        for (int i = 0; i < size; i++)
+        {
+            if (array[i].Equals(value)) return i;
+        }
+        return -1;
     }
 
     public void grow()
     {
-
+        int newCapacity = (int)capacity*2;
+        T[] newArray = new T[newCapacity];
+        for (int i = 0; i < size; i++)
+        {
+            newArray[i] = array[i];
+        }
+        capacity = newCapacity;
+        array = newArray;
     }
-    public void shrink(int count)
+    public void shrink()
     {
-
+        int newCapacity = (int)capacity / 2;
+        T[] newArray = new T[newCapacity];
+        for (int i = 0; i < size; i++)
+        {
+            newArray[i] = array[i];
+        }
+        capacity = newCapacity;
+        array = newArray;
     }
     public bool isEmpty()
     {
