@@ -150,13 +150,13 @@ public class DynamicArray<T>
     }
     public void shrink()
     {
-        int newCapacity = (int)capacity / 2;
-        T[] newArray = new T[newCapacity];
+        int NewCapacity = (int)capacity / 2;
+        T[] newArray = new T[NewCapacity];
         for (int i = 0; i < size; i++)
         {
             newArray[i] = array[i];
         }
-        capacity = newCapacity;
+        capacity = NewCapacity;
         array = newArray;
     }
     public bool isEmpty()
