@@ -1,24 +1,25 @@
 ﻿
 
+using System.Collections;
 using System.Linq;
 
-Stack<string> stack = new Stack<string>();
-Queue<string> queue = new Queue<string>();
+//Stack<string> stack = new Stack<string>();
+//Queue<string> queue = new Queue<string>();
 
-stack.Push("A");
-stack.Push("B");
-stack.Push("C");
-stack.Push("D");
-stack.Pop();
+//stack.Push("A");
+//stack.Push("B");
+//stack.Push("C");
+//stack.Push("D");
+//stack.Pop();
 
-//add element to queue 
-queue.Enqueue("A");
-queue.Enqueue("B");
-queue.Enqueue("C");
-queue.Enqueue("D");
-queue.Dequeue();
+////add element to queue 
+//queue.Enqueue("A");
+//queue.Enqueue("B");
+//queue.Enqueue("C");
+//queue.Enqueue("D");
+//queue.Dequeue();
 
-LinkedList<string> linkedlist = new LinkedList<string>();
+//LinkedList<string> linkedlist = new LinkedList<string>();
 
 
 // like stack
@@ -30,11 +31,11 @@ LinkedList<string> linkedlist = new LinkedList<string>();
 
 
 // like queue
-linkedlist.AddLast("A");
-linkedlist.AddLast("B");
-linkedlist.AddLast("C");
-linkedlist.AddLast("D");
-linkedlist.RemoveFirst();
+//linkedlist.AddLast("A");
+//linkedlist.AddLast("B");
+//linkedlist.AddLast("C");
+//linkedlist.AddLast("D");
+//linkedlist.RemoveFirst();
 
 //var node = linkedlist.Find("C");
 //linkedlist.AddAfter(node,"aasd");
@@ -47,20 +48,72 @@ linkedlist.RemoveFirst();
 
 
 
-DynamicArray<string> da = new DynamicArray<string>();
+//DynamicArray<string> da = new DynamicArray<string>();
 
-da.add("A");
-da.add("B");
-da.add("C");
-da.add("D");
-da.add("E");
-da.add("F");
+//da.add("A");
+//da.add("B");
+//da.add("C");
+//da.add("D");
+//da.add("E");
+//da.add("F");
 
-da.remove("C");
+//da.remove("C");
 
-Console.WriteLine(da.size);
-Console.WriteLine(da.capacity);
-Console.WriteLine(da.toString());
+//Console.WriteLine(da.size);
+//Console.WriteLine(da.capacity);
+//Console.WriteLine(da.toString());
+
+
+
+
+
+
+
+
+
+
+
+
+//LinkedList<int> linkedlist = new LinkedList<int>();
+//ArrayList arrayList = new ArrayList();
+
+
+//DateTime startTime, endTime, elapsedTime;
+
+//for (int i = 0; i<1000000;i++)
+//{
+//    linkedlist.AddFirst(i);
+//    arrayList.Add(i);
+//}
+
+//*************linkedlist******************
+
+//startTime = DateTime.Now;
+//linkedlist.Find(0);
+//linkedlist.Find(50000);
+//linkedlist.Find(999999);
+//linkedlist.AddBefore(linkedlist.Find(5000),525664645);
+//linkedlist.Remove(999999);
+//endTime = DateTime.Now;
+//Console.WriteLine(endTime-startTime);
+
+//*************arraylist*******************
+
+//startTime = DateTime.Now;
+//arrayList.IndexOf(0);
+//arrayList.IndexOf(50000);
+//arrayList.IndexOf(999999);
+//arrayList.Insert(5000, 525664645);
+//arrayList.Remove(999999);
+//endTime = DateTime.Now;
+//Console.WriteLine(endTime-startTime);
+
+
+
+
+
+
+
 
 
 
