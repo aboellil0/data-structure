@@ -113,17 +113,38 @@ using System.Linq;
 //                  Half of the array is eliminated during each "step"
 
 
-int[] array = new int[1000000];
-for (int i = 0; i < array.Length; i++)
-{ 
-    array[i] = i;
-}
-int target = 15;
+//int[] array = new int[1000000];
+//for (int i = 0; i < array.Length; i++)
+//{ 
+//    array[i] = i;
+//}
+//int target = 15;
 
 
 
-int index = array.BinarySearch(target);
-Console.WriteLine(index);
+//int index = array.BinarySearch(target);
+//Console.WriteLine(index);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 public static class extentionMethods
