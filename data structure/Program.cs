@@ -122,27 +122,30 @@ int target = 15;
 
 
 
-int index = binarySearch(array, target);
+int index = array.BinarySearch(target);
 Console.WriteLine(index);
 
 
-static int binarySearch(int[] array,int target)
+public static class extentionMethods
 {
-    int low = 0;  
-    int high = array.Length - 1;
-
-    while (low <= high)
+    public static int BinarySearch(this int[] array, int target)
     {
-        int middleIndex = (low+high)/2;
-        int value = array[middleIndex]; 
-        Console.WriteLine("Middle value: "+ middleIndex);
+        int low = 0;
+        int high = array.Length - 1;
 
-        if (value < target) low = middleIndex + 1;
-        else if(value > target) high = middleIndex - 1;
-        else return middleIndex;
-        
+        while (low <= high)
+        {
+            int middleIndex = (low + high) / 2;
+            int value = array[middleIndex];
+            Console.WriteLine("Middle value: " + middleIndex);
+
+            if (value < target) low = middleIndex + 1;
+            else if (value > target) high = middleIndex - 1;
+            else return middleIndex;
+
+        }
+        return -1;
     }
-    return -1;
 }
 
 
