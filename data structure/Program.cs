@@ -136,15 +136,24 @@ using System.Linq;
 //using for unformaly distrputeed data
 //o(log(log(n)))
 
-int[] array = {0,1,2,3,4,5,6,7,8,9};
-int[] array2 = {1,2,4,8,16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536 };
-int index = array2.InterpolationSearch(512);
+//int[] array = {0,1,2,3,4,5,6,7,8,9};
+//int[] array2 = {1,2,4,8,16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536 };
+//int index = array2.InterpolationSearch(512);
 
 
-Console.WriteLine((index != -1) ? "found: "+index : "not found");
+//Console.WriteLine((index != -1) ? "found: "+index : "not found");
 
 
 
+
+
+
+//bubble sort algorathem 
+//o(n^2)
+
+int[] array = { 5, 4, 3, 2, 1 };
+array.BubbleSort(false);
+Console.WriteLine(string.Join(", ", array));
 
 
 
@@ -161,6 +170,29 @@ Console.WriteLine((index != -1) ? "found: "+index : "not found");
 public static class extentionMethods
 {
 
+
+    public static void BubbleSort(this int[] array,bool ASC)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            for (global::System.Int32 j = 0; j < array.Length - i - 1; j++)
+            {
+                if (array[j] > array[j + 1] && ASC)
+                {
+                    int temp = array[j];
+                    array[j] =array[j + 1];
+                    array[j + 1] = temp;
+                }
+                else if (array[j] < array[j + 1] && !ASC)
+                {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+        
 
     public static int InterpolationSearch(this int[] array, int value)
     {
