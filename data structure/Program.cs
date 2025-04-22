@@ -151,13 +151,19 @@ using System.Linq;
 //bubble sort algorathem 
 //o(n^2)
 
+//int[] array = { 5, 4, 3, 2, 1 };
+//array.BubbleSort(false);
+//Console.WriteLine(string.Join(", ", array));
+
+
+
+
+//SelectionSort
+//o(n^2)
+
 int[] array = { 5, 4, 3, 2, 1 };
-array.BubbleSort(false);
+array.SelectionSort(false);
 Console.WriteLine(string.Join(", ", array));
-
-
-
-
 
 
 
@@ -170,7 +176,28 @@ Console.WriteLine(string.Join(", ", array));
 public static class extentionMethods
 {
 
+    public static void SelectionSort(this int[] array,bool ASC)
+    {
+        for (int i = 0; i < array.Length -1; i++)
+        {
+            int minIndex = i;
+            for (global::System.Int32 j = i+1; j < array.Length; j++)
+            {
+                if (array[j] < array[minIndex] && ASC)
+                {
+                    minIndex = j;
+                }
+                else if (array[j] > array[minIndex] && !ASC)
+                {
+                    minIndex = j;
+                }
+            }
 
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }
+    }
     public static void BubbleSort(this int[] array,bool ASC)
     {
         for (int i = 0; i < array.Length; i++)
