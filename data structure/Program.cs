@@ -132,6 +132,17 @@ using System.Linq;
 
 
 
+//interpolation search 
+//using for unformaly distrputeed data
+//o(log(log(n)))
+
+int[] array = {0,1,2,3,4,5,6,7,8,9};
+int[] array2 = {1,2,4,8,16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536 };
+int index = array2.InterpolationSearch(512);
+
+
+Console.WriteLine((index != -1) ? "found: "+index : "not found");
+
 
 
 
@@ -149,6 +160,23 @@ using System.Linq;
 
 public static class extentionMethods
 {
+
+
+    public static int InterpolationSearch(this int[] array, int value)
+    {
+        int high = array.Length - 1;
+        int low = 0;
+        while(value >= array[low] && value <= array[high] && low <= high)
+        {
+            if (low == high) return low;
+            int mid = low + ((value - array[low]) * (high - low)) / (array[high] - array[low]);
+            if (array[mid] == value) return mid;
+            else if (array[mid] < value) low = mid + 1;
+            else high = mid - 1;
+        }
+        return -1;
+    }
+
     public static int BinarySearch(this int[] array, int target)
     {
         int low = 0;
