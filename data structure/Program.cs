@@ -161,20 +161,42 @@ using System.Linq;
 //SelectionSort
 //o(n^2)
 
-int[] array = { 5, 4, 3, 2, 1 };
-array.SelectionSort(false);
-Console.WriteLine(string.Join(", ", array));
+//int[] array = { 5, 4, 3, 2, 1 };
+//array.SelectionSort(false);
+//Console.WriteLine(string.Join(", ", array));
 
 
 
 
 
 
+
+//insertion sorting 
+//o(n^2)
+
+int[] array = { 5, 0, 6, 8,2, 9, 1, 3 };
+array.InsertionSorting();
+Console.WriteLine(string.Join(", ",array));
 
 
 
 public static class extentionMethods
 {
+
+    public static void InsertionSorting(this int[] array)
+    {
+        for (int i = 1; i < array.Length; i++)
+        {
+            int temp = array[i];
+            int j = i - 1;
+            for (; j>=0 && array[j] > temp;)
+            {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j+1] = temp;
+        }
+    }
 
     public static void SelectionSort(this int[] array,bool ASC)
     {
