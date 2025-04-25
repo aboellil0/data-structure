@@ -174,15 +174,30 @@ using System.Linq;
 //insertion sorting 
 //o(n^2)
 
-int[] array = { 5, 0, 6, 8,2, 9, 1, 3 };
-array.InsertionSorting();
-Console.WriteLine(string.Join(", ",array));
+//int[] array = { 5, 0, 6, 8,2, 9, 1, 3 };
+//array.InsertionSorting();
+//Console.WriteLine(string.Join(", ",array));
+
+
+
+extentionMethods.walk(5);
+Console.WriteLine(extentionMethods.Factorial(2));
 
 
 
 public static class extentionMethods
 {
-
+    public static int Factorial(int num)
+    {
+        if (num == 0) return 1;
+        return num * Factorial(num - 1);
+    }
+    public static void walk(int num)
+    {
+        if (num == 0) return;
+        Console.WriteLine(num);
+        walk(num - 1);
+    }
     public static void InsertionSorting(this int[] array)
     {
         for (int i = 1; i < array.Length; i++)
