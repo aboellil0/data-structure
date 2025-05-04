@@ -180,13 +180,80 @@ using System.Linq;
 
 
 
-extentionMethods.walk(5);
-Console.WriteLine(extentionMethods.Factorial(2));
+//extentionMethods.walk(5);
+//Console.WriteLine(extentionMethods.Factorial(2));
 
+
+
+// marage sort algorathem 
+// o(n log(n))
+int[] array = new int[] { 5, 4, 3, 2, 1 };
+array.merageSort();
+Console.WriteLine(string.Join(", ", array));
 
 
 public static class extentionMethods
 {
+
+    public static void merageSort(this int[] array)
+    {
+        int length = array.Length;
+        if (length <= 1) return;
+
+        int middle = length / 2;
+        int[] leftArray = new int[middle];
+        int[] rightArray = new int[length - middle];
+
+        for (int i = 0; i < middle; i++)
+        {
+            leftArray[i] = array[i];
+        }
+        for (int i = middle; i < length; i++)
+        {
+            rightArray[i - middle] = array[i];
+        }
+
+        merageSort(leftArray);
+        merageSort(rightArray);
+        merge(leftArray, rightArray, array);
+    }
+    private static void merge(int[] leftArray, int[] rightArray, int[] array)
+    {
+        int leftSize = leftArray.Length;
+        int rightSize = rightArray.Length;
+
+        int i = 0, l = 0, r = 0;
+
+        while (l < leftSize && r < rightSize)
+        {
+            if (leftArray[l] < rightArray[r])
+            {
+                array[i] = leftArray[l];
+                l++;
+            }
+            else
+            {
+                array[i] = rightArray[r];
+                r++;
+            }
+            i++;
+        }
+
+        while (l < leftSize)
+        {
+            array[i] = leftArray[l];
+            l++;
+            i++;
+        }
+
+        while (r < rightSize)
+        {
+            array[i] = rightArray[r];
+            r++;
+            i++;
+        }
+    }
+
     public static int Factorial(int num)
     {
         if (num == 0) return 1;
